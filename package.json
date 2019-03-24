@@ -1,5 +1,5 @@
 {
-  "name": "todo-app",
+  "name": "pacman",
   "version": "1.0.0",
   "description": "Sample Todo app with skinned config for build and unit test",
   "main": "src/app/index.jsx",
@@ -39,7 +39,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pramod2work/react-skeleton.git"
+    "url": "git+https://github.com/pramod2work/pacman.git"
   },
   "keywords": [
     "todo-app",
@@ -48,9 +48,9 @@
   "author": "pramod2work",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pramod2work/react-skeleton/issues"
+    "url": "https://github.com/pramod2work/pacman/issues"
   },
-  "homepage": "https://github.com/pramod2work/react-skeleton#readme",
+  "homepage": "https://github.com/pramod2work/pacman#readme",
   "envVariableDescription": "NODE_ENV variable for webpack build and unit test, BUILD_DOMAIN is for build type that is going to point for sepcific domain id not specified then build is intended to production environemnt, TEST_DOMAIN is to specific test suite to pick required configuration",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
