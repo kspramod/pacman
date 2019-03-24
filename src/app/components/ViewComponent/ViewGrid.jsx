@@ -24,7 +24,7 @@ const ViewGrid = ({
                       return (
                         <td id={cellIndex} key={cellIndex} colSpan='1'>
                           <span>
-                            {`Cell Value ${cellIndex}`}
+                            {`Cell Value ${xAxis}-${yAxisIdx}`}
                           </span>
                           <br />
                           <span style={{ color: 'blue' }}>

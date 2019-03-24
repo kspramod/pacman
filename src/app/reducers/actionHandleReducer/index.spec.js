@@ -1,66 +1,119 @@
 /* global describe test expect */
 
 import
-todoDataReducer,
+actionHandleReducer,
 {
-  addTask,
-  updateTask,
-  deleteTask
+  placeAction,
+  moveAction,
+  changeDirectionClockwise,
+  changeDirectionAntiClockwise
 } from './index'
+import { DIRECTION_MAP } from '../../utils/mapConstant'
 
-const initialState = { tasks: [] }
+const initialState = {
+  xAxis: 0,
+  yAxis: 0,
+  face: 0
+}
 
-describe('Verify Todo Reducer', () => {
-  test('test add task reducer for initial value', () => {
-    const payload = { name: 'dummy' }
-    expect(todoDataReducer(initialState, addTask(payload))).toEqual({
-      tasks: [{
-        ...payload,
-        id: 0
-      }]
+describe('Verify PacMan core logic', () => {
+  test('test place packman action (0, 0, NORTH)', () => {
+    const payload = { xAxis: 0, yAxis: 0, face: DIRECTION_MAP.NORTH }
+    expect(actionHandleReducer(initialState, placeAction(payload))).toEqual({
+      ...payload
     })
   })
 
-  test('test add task reducer for nth value', () => {
-    const payload = { name: 'dummy' }
-    const state = { tasks: [1, 2, 3] }
-    expect(todoDataReducer(state, addTask(payload))).toEqual({
-      tasks: [
-        1, 2, 3,
-        {
-          ...payload,
-          id: 3
-        }
-      ]
+  test('test place packman action (1, 2, EAST)', () => {
+    const payload = { xAxis: 1, yAxis: 2, face: DIRECTION_MAP.EAST }
+    expect(actionHandleReducer(initialState, placeAction(payload))).toEqual({
+      ...payload
     })
   })
 
-  test('test update task reducer', () => {
-    const payload = { name: 'dummy', id: 2 }
-    const state = { tasks: [1, 2, 3, 4] }
-    expect(todoDataReducer(state, updateTask(payload))).toEqual({
-      tasks: [
-        1, 2,
-        { ...payload },
-        4
-      ]
+  test('Handle Overflow (5, 5, SOUTH)', () => {
+    const payload = { xAxis: 5, yAxis: 5, face: DIRECTION_MAP.SOUTH }
+    expect(actionHandleReducer(initialState, placeAction(payload))).toEqual({
+      ...initialState,
+      face: 2
     })
   })
 
-  test('test delete task reducer', () => {
-    const payload = 1
-    const state = {
-      tasks: [
-        { id: 0, name: 0 },
-        { id: 1, name: 1 },
-        { id: 2, name: 2 }
-      ]
-    }
-    expect(todoDataReducer(state, deleteTask(payload))).toEqual({
-      tasks: [
-        { id: 0, name: 0 },
-        { id: 1, name: 2 }
-      ]
+  test('Move Action from (4,0,EAST)', () => {
+    const state = { xAxis: 4, yAxis: 0, face: DIRECTION_MAP.EAST }
+    expect(actionHandleReducer(state, moveAction())).toEqual({
+      ...state
+    })
+  })
+
+  test('Move Action from (4,0,WEST)', () => {
+    const state = { xAxis: 4, yAxis: 0, face: DIRECTION_MAP.WEST }
+    expect(actionHandleReducer(state, moveAction())).toEqual({
+      ...state,
+      xAxis: 3
+    })
+  })
+
+  test('Move Action from (0,0,EAST)', () => {
+    const state = { xAxis: 0, yAxis: 0, face: DIRECTION_MAP.EAST }
+    expect(actionHandleReducer(state, moveAction())).toEqual({
+      ...state,
+      xAxis: 1
+    })
+  })
+
+  test('Move Action from (0,4,NORTH)', () => {
+    const state = { xAxis: 0, yAxis: 4, face: DIRECTION_MAP.NORTH }
+    expect(actionHandleReducer(state, moveAction())).toEqual({
+      ...state
+    })
+  })
+
+  test('Move Action from (0,4,SOUTH)', () => {
+    const state = { xAxis: 0, yAxis: 4, face: DIRECTION_MAP.SOUTH }
+    expect(actionHandleReducer(state, moveAction())).toEqual({
+      ...state,
+      yAxis: 3
+    })
+  })
+
+  test('Move Action from (0,0,NORTH)', () => {
+    const state = { xAxis: 0, yAxis: 0, face: DIRECTION_MAP.NORTH }
+    expect(actionHandleReducer(state, moveAction())).toEqual({
+      ...state,
+      yAxis: 1
+    })
+  })
+
+  test('Change Direction ClockWise EAST + 1', () => {
+    const state = { xAxis: 0, yAxis: 0, face: DIRECTION_MAP.EAST }
+    expect(actionHandleReducer(state, changeDirectionClockwise())).toEqual({
+      ...state,
+      face: DIRECTION_MAP.SOUTH
+    })
+  })
+
+  test('Change Direction ClockWise WEST + 1', () => {
+    const state = { xAxis: 0, yAxis: 0, face: DIRECTION_MAP.WEST }
+    expect(actionHandleReducer(state, changeDirectionClockwise())).toEqual({
+      ...state,
+      face: DIRECTION_MAP.NORTH
+    })
+  })
+
+  test('Change Direction Anti-ClockWise SOUTH + 1', () => {
+    const state = { xAxis: 0, yAxis: 0, face: DIRECTION_MAP.SOUTH }
+    expect(actionHandleReducer(state, changeDirectionAntiClockwise())).toEqual({
+      ...state,
+      face: DIRECTION_MAP.EAST
+    })
+  })
+
+  test('Change Direction Anti-ClockWise NORTH + 1', () => {
+    const state = { xAxis: 0, yAxis: 0, face: DIRECTION_MAP.NORTH }
+    expect(actionHandleReducer(state, changeDirectionAntiClockwise())).toEqual({
+      ...state,
+      face: DIRECTION_MAP.WEST
     })
   })
 })

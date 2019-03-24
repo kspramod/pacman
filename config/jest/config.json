@@ -1,7 +1,7 @@
 {
     "collectCoverage": true,
     "collectCoverageFrom": [
-        "src/**/*.{js,jsx}",
+        "src/app/reducers/**/*.{js,jsx}",
         "!src/**/.eslintrc.js",
         "!src/app/index.jsx",
         "!src/app/store.js",

@@ -62,20 +62,6 @@ class InputHandler extends React.Component {
         onSubmit={this.handleSubmit}
       >
         <Form.Row>
-          <Form.Group as={Col} sm={6} md={4} controlId='formHorizontalyAxis'>
-            <Form.Label>
-              Y Axis:
-            </Form.Label>
-            <Form.Control
-              required
-              type='number'
-              name='yAxis'
-              data-test-id='yAxis-input'
-              placeholder='yAxis'
-              value={yAxis}
-              onChange={this.handleInputChange}
-            />
-          </Form.Group>
           <Form.Group as={Col} sm={6} md={4} controlId='formHorizontalxAxis'>
             <Form.Label>
               X Axis:
@@ -87,6 +73,20 @@ class InputHandler extends React.Component {
               data-test-id='xAxis-input'
               placeholder='xAxis'
               value={xAxis}
+              onChange={this.handleInputChange}
+            />
+          </Form.Group>
+          <Form.Group as={Col} sm={6} md={4} controlId='formHorizontalyAxis'>
+            <Form.Label>
+              Y Axis:
+            </Form.Label>
+            <Form.Control
+              required
+              type='number'
+              name='yAxis'
+              data-test-id='yAxis-input'
+              placeholder='yAxis'
+              value={yAxis}
               onChange={this.handleInputChange}
             />
           </Form.Group>
@@ -140,13 +140,7 @@ class InputHandler extends React.Component {
           </Col>
         </Form.Group>
 
-        <Form.Group as={Row}>
-          <Col xs={4}>
-            <Button type='button' data-test-id='report-action' variant='info'>
-              Report
-            </Button>
-          </Col>
-        </Form.Group>
+        <br />
 
         <Form.Group as={Row}>
           <Col xs={12} data-test-id='report-output'>
