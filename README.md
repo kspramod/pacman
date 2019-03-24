@@ -1,9 +1,9 @@
-# Todo Sample App
+# Pac-Man 5 X 5 Grid Sample
 
 ## Description
-Sample Todo App with skinned tasks to show production build, dev build and unit test related tasks
+Sample Pac-Man App to handle 5X5 grid
 
-## App is hosted on https://todo-app-from-skeleton.appspot.com/
+## App is hosted on https://pacman-5-5.appspot.com
 
 ## Scripts
 
