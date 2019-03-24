@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component Snapshot test 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <BrowserRouter>
+    <ForwardRef(Bootstrap(Container))
+      style={
+        Object {
+          "marginTop": "1rem",
+        }
+      }
+    >
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/task/:taskId(add|\\\\d{0,9})"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+    </ForwardRef(Bootstrap(Container))>
+  </BrowserRouter>
+</Provider>
+`;

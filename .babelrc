@@ -1,0 +1,25 @@
+{
+  "plugins": [
+    "lodash",
+    "react-hot-loader/babel",
+  ],
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "browsers": [
+            "edge >= 15",
+            "ie > 10",
+            "safari >= 11",
+            "chrome >= 62",
+            "firefox >= 53",
+          ]
+        },
+        "useBuiltIns": "usage",
+      },
+    ],
+    "@babel/preset-flow",
+    "@babel/preset-react",
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all -p precommit:*",
+      "pre-push": "npm-run-all -p prepush:*"
+    }
+  }
+}
