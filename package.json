@@ -55,7 +55,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "@hot-loader/react-dom": "^16.8.4",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-bootstrap": "^1.0.0-beta.5",
